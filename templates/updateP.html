@@ -1,0 +1,94 @@
+{% extends "houtai.html" %}
+
+{% block mainbody %}
+    {{ message }}
+    <div class="register" class="register-but">
+        输入产品编号进行查找
+        <div class="clearfix"></div>
+        <div class="search" style="float: left">
+            <form action="/productUS" method="post" enctype="multipart/form-data" onsubmit="return check1()">
+                <input type="text" name="code" id="code" value="{{ number }}">
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+        <form action="/productUS1" method="post" enctype="multipart/form-data" onsubmit="return check()">
+            产品名称<br>
+            <input type="text" id="name" name="name" value="{{ name }}"><br>
+            产品编号<br>
+                    <input type="text" id="number" name="number" value="{{ number }}"style="display: none"><br>
+            <h3>{{ number }}</h3>
+            上传图片<br>
+            {#    <label class="sr-only" for="inputfile" class="btn btn-default">文件输入</label>#}
+            <img src="{{ img }}">
+            <input id='img' type="file" name="img" style="width: 60%" value="{{ img }}"><br>
+            <img src="{{ img0 }}">
+            <input id='img0' type="file" name="img0" style="width: 60%" value="{{ img0 }}"><br>
+            <img src="{{ img1 }}">
+            <input id='img1' type="file" name="img1" style="width: 60%" value="{{ img1 }}"><br>
+            <img src="{{ img2 }}">
+            <input id='img2' type="file" name="img2" style="width: 60%" value="{{ img2 }}"><br>
+            产品介绍<br>
+            <input type="text" id="introduction" name="introduction" value="{{ introduction }}"><br>
+            产品定价<br>
+            <input type="text" id="money" name="money" value="{{ money }}"><br>
+            优惠价格<br>
+            <input type="text" id="money0" name="money0" value="{{ money0 }}"><br>
+            产品分类<br>
+            <input type="text" id="type" name="type" value="{{ type }}"><br>
+            库存数<br>
+            <input type="text" id="count" name="count" value="{{ count }}"><br>
+            <input type="submit" id="change" name="change" value="修改">
+        </form>
+    </div>
+    <script type="text/javascript">
+        function check1() {
+            var code = document.getElementById("code").value;
+            if (code == null || code == '') {
+                alert("产品名不能为空");
+                return false;
+            }
+
+        }
+
+        function check() {
+            var name = document.getElementById("name").value;
+            if (name == null || name == '') {
+                alert("产品名不能为空");
+                return false;
+            }
+
+            var introduction = document.getElementById("introduction").value;
+            if (introduction == null || introduction == '') {
+                alert("请输入产品介绍");
+                return false;
+            }
+            var money = document.getElementById("money").value;
+            if (money == null || money == '') {
+                alert("请输入产品价格");
+                return false;
+            }
+            var money0 = document.getElementById("money0").value;
+            if (money0 == null || money0 == '') {
+                alert("请输入优惠价格");
+                return false;
+            }
+
+            var type = document.getElementById("type").value;
+            if (type == null || type == '') {
+                alert("请输入产品类型");
+                return false;
+            }
+            var count = document.getElementById("count").value;
+            if (count == null || count == '') {
+                alert("请输入库存数");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+    </script>
+{% endblock %}

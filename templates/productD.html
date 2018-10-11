@@ -1,0 +1,56 @@
+{% extends "houtai.html" %}
+
+{% block mainbody %}
+    {{ message }}
+    <div class="register" class="register-but">
+        输入产品编号进行查找
+        <div class="clearfix"></div>
+        <div class="search" style="float: left">
+            <form action="/productDS" method="post" enctype="multipart/form-data" onsubmit="return check1()">
+                <input type="text" name="code" id="code" value="{{ number }}">
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+        <div class="clearfix"></div>
+        <form action="/productDS1" method="post" enctype="multipart/form-data" >
+            产品名称<br>
+{{name }}
+            产品编号<br>
+             <input type="text" id="code" name="code" value="{{ number}}"style="display: none"><br>
+            <h3>{{ number }}</h3>
+            上传图片<br>
+            {#    <label class="sr-only" for="inputfile" class="btn btn-default">文件输入</label>#}
+            <img src="{{ img }}">
+
+            <img src="{{ img0 }}">
+
+            <img src="{{ img1 }}">
+
+            <img src="{{ img2 }}">
+
+            产品介绍<br>
+ {{ introduction }}<br>
+            产品定价<br>
+{{ money }}<br>
+            优惠价格<br>
+{{ money0 }}<br>
+            产品分类<br>
+ {{ type }}<br>
+            库存数<br>
+{{ count }}<br>
+            <input type="submit" id="change" name="change" value="删除">
+        </form>
+    </div>
+    <script type="text/javascript">
+        function check1() {
+            var code = document.getElementById("code").value;
+            if (code == null || code == '') {
+                alert("产品编号不能为空");
+                return false;
+            }
+
+        }
+
+
+    </script>
+{% endblock %}

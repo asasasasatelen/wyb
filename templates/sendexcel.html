@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+{#                     <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />#}
+           <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
+</head>
+<body>
+<h1>    {{ upload }}</h1>
+<br>
+<div class="con-sed-grid"style="width: 95%">
+<form action="/upload" method="post" enctype="multipart/form-data">
+
+{#    <label class="sr-only" for="inputfile" class="btn btn-default">文件输入</label>#}
+    <input id='img' type="file" name="img"style="width: 60%" >
+
+
+    <input type="submit" value="上传" class="aaa"style="width: 25%">
+</form>
+</div>
+<br>
+<div class="con-sed-grid"style="width: 95%">
+    <div class="panel-heading">上传记录</div>
+    <ul class="list-group">
+        <li class="list-group-item">免费域名注册
+
+        </li>
+        <li class="list-group-item">免费 Window 空间托管
+        </li>
+        <li class="list-group-item">图像的数量
+   </li>
+        <li class="list-group-item">24*7 支持</li>
+        <li class="list-group-item">每年更新成本 </li>
+    </ul>
+
+</div>
+
+
+</body>
+</html>

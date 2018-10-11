@@ -1,0 +1,99 @@
+{% extends "houtai.html" %}
+
+{% block mainbody %}
+    <div class="register" class="register-but">
+        <h3> {{ message}}</h3>
+        <h3> {{ upload }}</h3>
+
+        <form action="/uploadproduct" method="post" enctype="multipart/form-data" onsubmit="return check()">
+            产品名称<br>
+            <input type="text" id="name" name="name"><br>
+            产品编号<br>
+            <input type="text" id="number" name="number"><br>
+            上传图片<br>
+            {#    <label class="sr-only" for="inputfile" class="btn btn-default">文件输入</label>#}
+            <input id='img' type="file" name="img" style="width: 60%"><br>
+            <input id='img0' type="file" name="img0" style="width: 60%"><br>
+            <input id='img1' type="file" name="img1" style="width: 60%"><br>
+            <input id='img2' type="file" name="img2" style="width: 60%"><br>
+            产品介绍<br>
+            <input type="text" id="introduction" name="introduction"><br>
+            产品定价<br>
+            <input type="text" id="money" name="money"><br>
+            优惠价格<br>
+            <input type="text" id="money0" name="money0"><br>
+            产品分类<br>
+            <input type="text" id="type" name="type"><br>
+            库存数<br>
+            <input type="text" id="count" name="count"><br>
+            <input type="submit" value="提交" class="aaa"><br>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function check() {
+            var name = document.getElementById("name").value;
+            if (name == null || name == '') {
+                alert("产品名不能为空");
+                return false;
+            }
+            var email = document.getElementById("img").value;
+            if (email == null || email == '') {
+                alert("请上传第一张产品图片");
+                return false;
+            }
+
+            var phone = document.getElementById("img0").value;
+            if (phone == null || phone == '') {
+                alert("请上传第二张产品图片");
+                return false;
+            }
+
+            var password = document.getElementById("img1").value;
+            if (password == null || password == '') {
+                alert("请上传第三张产品图片");
+                return false;
+            }
+            var img2 = document.getElementById("img2").value;
+            if (img2 == null || password == '') {
+                alert("请上传第4张产品图片");
+                return false;
+            }
+            var introduction = document.getElementById("introduction").value;
+            if (introduction == null || introduction == '') {
+                alert("请输入产品介绍");
+                return false;
+            }
+            var money = document.getElementById("money").value;
+            if (money == null || money == '') {
+                alert("请输入产品价格");
+                return false;
+            }
+            var money0 = document.getElementById("money0").value;
+            if (money0 == null || money0 == '') {
+                alert("请输入优惠价格");
+                return false;
+            }
+
+            var type = document.getElementById("type").value;
+            if (type == null || type == '') {
+                alert("请输入产品类型");
+                return false;
+            }
+            var count = document.getElementById("count").value;
+            if (count == null || count == '') {
+                alert("请输入库存数");
+                return false;
+            }
+            var number = document.getElementById("number").value;
+            if (number == null || number == '') {
+                alert("请输入产品编号");
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block mainbody %}
+    <div class="container">
+
+        <div class="account_grid">
+            <div class=" login-right">
+                <h3>{{ message }}</h3>
+{#                <h3>注册用户</h3>#}
+                <p>如果您已拥有用户，请登陆</p>
+                <form action="/loginuser" method="post" enctype="multipart/form-data" onsubmit="return check()">
+                    <div>
+                        <span>邮箱地址<label>*</label></span>
+                        <input id="email" type="text" name="email" value="{{ username }}">
+                    </div>
+                    <div>
+                        <span>密码<label>*</label></span>
+                        <input id="password" type="password" name="password" value="{{ password }}">
+                    </div>
+                    <a class="forgot" href="#">忘记密码?</a>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+            <div class=" login-left">
+                <h3>新用户</h3>
+                <p>通过在我们的商店创建一个账户，您将能够更快地完成结账过程，存储多个送货地址，查看和跟踪你账户中的订单，等等。</p>
+                <a class="acount-btn" href="/register">创建用户</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function check() {
+
+            var email = document.getElementById("email").value;
+            if (email == null || email == '') {
+                alert("邮箱不能为空");
+                return false;
+            }
+            var password = document.getElementById("password").value;
+            if (password == null || password == '') {
+                alert("密码不能为空");
+                return false;
+            }
+
+            return true;
+        }
+
+
+    </script>
+{% endblock %}

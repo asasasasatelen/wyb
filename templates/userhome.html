@@ -1,0 +1,124 @@
+<!--A Design by xmoban
+Author: W3layout
+Author URL: http://xmoban.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Contact :: xmoban</title>
+    <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--theme-style-->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {#    <script type="application/x-javascript"> addEventListener("load", function () {#}
+    {#        setTimeout(hideURLbar, 0);#}
+    {#    }, false);#}
+    {##}
+    {#    function hideURLbar() {#}
+    {#        window.scrollTo(0, 1);#}
+    {#    } </script>#}
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script src="static/js/jquery.min.js"></script>
+
+
+    <!--script-->
+</head>
+<body scroll="no">
+<!--header-->
+<div class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="#">爆款！！！<span class="live">铠甲勇士 </span></a></li>
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="top-header-right">
+            <ul class="support">
+    <li><a>{{username }}|</a><a href="/outlogin">注销</a></li>
+    <!----></ul>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="bottom-header">
+    <div class="container">
+        <div class="header-bottom-left">
+            <div class="logo">
+                <a href="/"><img src="static/images/logo.png" alt=" "/></a>
+
+            </div>
+            {#                <div class="search">#}
+            {#                    <input type="text" value="" onfocus="this.value = '';"#}
+            {#                           onblur="if (this.value == '') {this.value = '';}">#}
+            {#                    <input type="submit" value="SEARCH">#}
+            {##}
+            {#                </div>#}
+            <div class="clearfix"></div>
+        </div>
+        {#            <div class="header-bottom-right">#}
+        {#                <div class="account"><a href="login.html"><span> </span>我的账户</a></div>#}
+        {#                <ul class="login">#}
+        {#                    <li><a href="login.html"><span> </span>登陆</a></li>#}
+        {#                    |#}
+        {#                    <li><a href="register.html">注册</a></li>#}
+        {#                </ul>#}
+        {#                <div class="cart"><a href="#"><span> </span>购物车</a></div>#}
+        {#                <div class="clearfix"></div>#}
+        {#            </div>#}
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+<!---->
+<div class="container">
+    <div class="sub-cate">
+
+        <div class=" top-nav rsidebar span_1_of_left">
+            <h3 class="cate">个人中心</h3>
+            <ul class="menu">
+                <li class="item1"><a href="#">我的订单<img class="arrow-img" alt=""/> </a>
+
+                </li>
+                <li class="item2"><a href="#" onclick="bd()">上传报表 <img class="arrow-img " alt=""/></a>
+
+                </li>
+                <li class="item3"><a href="#" onclick="bd1()">物流追踪<img class="arrow-img " alt=""/> </a>
+                </li>
+                <li class="item3"><a href="#" onclick="bd2()">购物车<img class="arrow-img " alt=""/> </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <iframe id="i" scrolling="no" marginwidth="1em" marginheight="1em" frameborder="0" width="70%"
+            height="500px"></iframe>
+
+</div>
+
+<script type="text/javascript">
+    function bd() {
+        var baidu = document.getElementById("i");
+        baidu.src = "/sendexcel";
+    }
+
+    function bd1() {
+        var baidu = document.getElementById("i");
+        baidu.src = "http://www.qq.com";
+    }
+</script>
+</body>
+</html>

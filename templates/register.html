@@ -1,0 +1,99 @@
+{% extends "index.html" %}
+
+{% block mainbody %}
+    <div class="register" class="register-but">
+
+        <form action="/toregister" method="post" enctype="multipart/form-data" onsubmit="return check()">
+            <h3>{{ message }}</h3>
+            <div class="  register-top-grid">
+                <h3>个人信息</h3>
+                <div class="mation">
+                    <span>称呼<label>*</label></span>
+                    <input type="text" name="name" id="name">
+                    <span>邮箱地址<label>*</label></span>
+                    <input type="text" name="email " id="email">
+                    <span>手机号码<label>*</label></span>
+                    <input type="text" name="phone " id="phone">
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="  register-bottom-grid">
+                <h3>登陆信息</h3>
+                <div class="mation" class=" login-right">
+                    <span>密码<label>*</label></span>
+                    <input type="password" name="password" id="password">
+                    <span id="passstrength"></span>
+                    <span>重新输入密码<label>*</label></span>
+                    <input type="password" name="password1"id="password1">
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input class="aaa" type="submit" value="提交">
+            <div class="clearfix"></div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $('#password').keyup(function (e) {
+            var mediumRegex = new RegExp("^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}$", "g");
+            var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+            if (false == enoughRegex.test($(this).val())) {
+                $('#passstrength').html('密码必须是字母大写，字母小写，数字，特殊字符中任意三种组合且大于等于8位，请重新设置！');
+            } else if (mediumRegex.test($(this).val())) {
+                $('#passstrength').className = 'alert';
+                $('#passstrength').html('符合');
+
+            }
+            return true;
+        });
+
+        function check() {
+            var name = document.getElementById("name").value;
+            if (name == null || name == '') {
+                alert("用户名不能为空");
+                return false;
+            }
+            var email = document.getElementById("email").value;
+            if (email == null || email == '') {
+                alert("邮箱不能为空");
+                return false;
+            }
+            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            if (!myreg.test(email)) {
+                alert('提示\n\n请输入有效的E_mail！');
+                return false;
+            }
+            var phone = document.getElementById("phone").value;
+            if (phone == null || phone == '') {
+                alert("手机号码不能为空");
+                return false;
+            }
+
+            var myreg1 =  /^0?1[3|4|5|8][0-9]\d{8}$/;
+            if (!myreg1.test(phone)) {
+                alert('提示\n\n请输入有效的手机号码！');
+                return false;
+            }
+            var password = document.getElementById("password").value;
+            if (password == null || password == '') {
+                alert("密码不能为空");
+                return false;
+            }
+            var myreg2 = /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9]).{8,30}$/;
+            if (!myreg2.test(password)) {
+                alert("密码必须是字母大写，字母小写，数字，特殊字符中任意三种组合且大于等于8位");
+                return false;
+            }
+            var password1 = document.getElementById("password1").value;
+            if (password != password1) {
+                alert("两次密码不一致");
+                return false;
+            }
+            return true;
+        }
+
+
+    </script>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block mainbody %}
+
+    <!--header-->
+    <!---->
+    <div class="container">
+
+        <!---->
+        <div class="main">
+            <div class="reservation_top">
+                <div class=" contact_right">
+                    <div>
+                     <h3>介绍</h3>
+
+
+
+                    </div>
+                    <h3>联系我们</h3>
+                    <div class="contact-form">
+                        <form method="post" action="contact-post.html">
+                            <input type="text" style="width: 100%" class="textbox" value="name" onfocus="this.value = '';"
+                                   onblur="if (this.value == '') {this.value = '您的名字';}">
+                            <input type="text" class="textbox"style="width: 100%" value="Email" onfocus="this.value = '';"
+                                   onblur="if (this.value == '') {this.value = '您的邮箱地址';}">
+                            <textarea value="Message" onfocus="this.value= '';"
+                                      onblur="if (this.value == '') {this.value = '信息';}">Message</textarea>
+                            <div class="clearfix"></div>
+                            <input type="submit" value="发送"style="float: left;width: 100%">
+                            <div class="clearfix"></div>
+                        </form>
+                        <br>
+                        <address class="address">
+                            <p>9870 St Vincent Place, <br>Glasgow, DC 45 Fr 45.</p>
+                            <dl>
+                                <dt></dt>
+                                <dd>电话号码:<span> +1 800 254 2478</span></dd>
+                                <dd>Telephone:<span> +1 800 547 5478</span></dd>
+                                <dd>传真: <span>+1 800 658 5784</span></dd>
+                                <dd>邮箱:&nbsp; <a href="mailto@vintage.com">info(at)bigshop.com</a></dd>
+                            </dl>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+{% endblock %}

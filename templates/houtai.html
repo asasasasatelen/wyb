@@ -1,0 +1,114 @@
+<!--A Design by xmoban
+Author: W3layout
+Author URL: http://xmoban.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Contact :: xmoban</title>
+    <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--theme-style-->
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {#    <script type="application/x-javascript"> addEventListener("load", function () {#}
+    {#        setTimeout(hideURLbar, 0);#}
+    {#    }, false);#}
+    {##}
+    {#    function hideURLbar() {#}
+    {#        window.scrollTo(0, 1);#}
+    {#    } </script>#}
+    <!--fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!--//fonts-->
+    <script src="static/js/jquery.min.js"></script>
+
+
+    <!--script-->
+</head>
+<body scroll="no">
+<!--header-->
+<div class="header">
+    <div class="top-header">
+        <div class="container">
+            <div class="top-header-left">
+                <ul class="support">
+                    <li><a href="#"><label> </label></a></li>
+                    <li><a href="#">爆款！！！<span class="live">铠甲勇士 </span></a></li>
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="top-header-right">
+                <ul class="support">
+                    <li><a>{{ username }}|</a><a href="/outlogin">注销</a></li>
+                    <!----></ul>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="bottom-header">
+    <div class="container">
+        <div class="header-bottom-left">
+            <div class="logo">
+                <a href="/"><img src="/static/images/xiaodian.png" alt=" "/></a>
+
+            </div>
+            \
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+</div>
+<!---->
+<div class="container">
+    <div class="sub-cate">
+
+        <div class=" top-nav rsidebar span_1_of_left">
+            <h3 class="cate">后台管理中心</h3>
+            <ul class="menu">
+                <li class="item1"><a href="/admin_p">添加产品<img class="arrow-img" alt=""/> </a>
+
+                </li>
+                <li class="item2"><a href="/admin_u">修改产品属性<img class="arrow-img " alt=""/></a>
+
+                </li>
+                <li class="item2"><a href="/admin_d">删除产品<img class="arrow-img " alt=""/></a>
+
+                </li>
+                <li class="item3"><a href="#" onclick="bd1()">查看订单<img class="arrow-img " alt=""/> </a>
+                </li>
+                <li class="item3"><a href="#" onclick="bd2()">购物车<img class="arrow-img " alt=""/> </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    {% block mainbody %}
+        aa
+    {% endblock %}
+
+</div>
+
+<script type="text/javascript">
+    function bd() {
+        var baidu = document.getElementById("i");
+        baidu.src = "/sendexcel";
+    }
+
+    function bd1() {
+        var baidu = document.getElementById("i");
+        baidu.src = "http://www.qq.com";
+    }
+</script>
+</body>
+</html>
