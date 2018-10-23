@@ -23,7 +23,9 @@ from wyb import product
 from wyb import testdb
 from wyb import register
 from wyb import outlogin
-import os,django
+import os, django
+from wyb import gouwuche
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 django.setup()
@@ -52,4 +54,10 @@ urlpatterns = [
     url(r'^admin_d$', view.productD),
     url(r'^productDS$', product.getdelectP),
     url(r'^productDS1$', product.delectP),
+    url(r'^car$', view.car),
+    url(r'^tocar$', gouwuche.add_to_cart),
+    url(r'^carcut$', gouwuche.carcut),
+    url(r'^caradd$', gouwuche.caradd),
+    url(r'^cardel$', gouwuche.delete_from_car),
+    url(r'^pay$',view.pay),
 ]

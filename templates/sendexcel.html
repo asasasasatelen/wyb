@@ -1,43 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-{#                     <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />#}
-           <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+{% extends "userhome.html" %}
+
+{% block mainbody %}
+    <div class='container'>
+    <br>
+    <h1>    {{ upload }}</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input id='img' type="file" name="img" style="width: 25%">
+            <br>
+            <input type="submit" value="上传" class="aaa" style="width: 25%">
+        </form>
+                    <div class='panel panel-body'>
+                        <from>
+                            <table>
+                                <tr>
+                                    <td width=300 align=center>文件名</td>
+                                    <td width=300 align=center>上传时间</td>
+                                    <td width=100 align=center>支付状态</td>
+                                    <td width=100 align=center>下载</td>
+
+                                </tr>
 
 
-</head>
-<body>
-<h1>    {{ upload }}</h1>
-<br>
-<div class="con-sed-grid"style="width: 95%">
-<form action="/upload" method="post" enctype="multipart/form-data">
+                                {% for file in filelist %}
 
-{#    <label class="sr-only" for="inputfile" class="btn btn-default">文件输入</label>#}
-    <input id='img' type="file" name="img"style="width: 60%" >
+                                    <tr>
+                                        <td width=300 align=center><span>{{ file.file_name }}</span></td>
+                                        <td width=300 align=center class="number"><span>{{ file.Ftime }}</span>
+                                        </td>
+                                         <td width=300 align=center class="number"><span>{% if file.file_flag %}
+                                             已支付
+                                             {% else %}
+                                             <a href="/pay?filepath={{ file.path }}"><button>支付</button></a>
+                                         {% endif %}
+                                         </span>
+                                        </td>
+                                        <td width=300 align=center><a href="/download?path={{ file.path }}"><button>下载</button></a>
+                                        </td>
 
+                                    </tr><br>
 
-    <input type="submit" value="上传" class="aaa"style="width: 25%">
-</form>
-</div>
-<br>
-<div class="con-sed-grid"style="width: 95%">
-    <div class="panel-heading">上传记录</div>
-    <ul class="list-group">
-        <li class="list-group-item">免费域名注册
-
-        </li>
-        <li class="list-group-item">免费 Window 空间托管
-        </li>
-        <li class="list-group-item">图像的数量
-   </li>
-        <li class="list-group-item">24*7 支持</li>
-        <li class="list-group-item">每年更新成本 </li>
-    </ul>
-
-</div>
+                                {% endfor %}
+                            </table>
+                        </from>
+                    </div>
+                    <div class="clearfix"></div>
 
 
-</body>
-</html>
+    </div>
+
+
+
+    <br>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class='panel panel-body'>
+                        <from>
+                            <table>
+                                <tr>
+                                    <td width=300 align=center>产品名称</td>
+                                    <td width=300 align=center>产品编号</td>
+                                    <td width=100 align=center>产品图片</td>
+                                    <td width=100 align=center>单价</td>
+                                    <td width=100 align=center>数量</td>
+                                    <td width=100 align=center>小计</td>
+
+                                </tr>
+
+
+                                {% for car in carlist %}
+
+                                    <tr>
+                                        <td width=300 align=center><span>{{ car.product.name }}</span></td>
+                                        <td width=300 align=center class="number"><span>{{ car.product.number }}</span>
+                                        </td>
+                                        <td width=300 align=center>
+                                            <div><img src="{{ car.product.imgurl }}" style="width: 50px"></div>
+                                        </td>
+                                        <td width=300 align=center class="price"><span>{{ car.product.price0 }}</span>
+                                        </td>
+                                        <td width=300 align=center>
+                                            <ul class="count">
+                                                <span>{{ car.count }}</span>
+                                            </ul>
+
+                                        </td>
+                                        <td width=300 align=center class="sum"><span>{{ car.sum }}</span></td>
+                                        {#                            <td width=300 align=center>{{ list.6 }}</td>#}
+
+                                    </tr><br>
+
+                                {% endfor %}
+                            </table>
+                        </from>
+                    </div>
+                    <div class="clearfix"></div>
+            <div class="pay"style="">
+                <center><h3>总价:¥<span class="totalPrice">{{ allsum }}</span></h3></center>
+               <center><div><img src="/static/images/2018-10-11_02_32_53_1.png" style="width: 300px"></div></center>
+</body>
+</html>

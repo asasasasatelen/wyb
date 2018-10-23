@@ -32,6 +32,14 @@ class dingdang(models.Model):
     wuliu= models.CharField(null=True, max_length=255)
     #物流单号
     wlID=models.CharField(null=True, max_length=255)
+    #订单时间
+    Dtime=models.CharField(null=True, max_length=255)
+    #总价
+    sum=models.CharField(null=True, max_length=255)
+    #是否已支付
+    payflag=models.CharField(null=True, max_length=255)
+    # 来源文件
+    fromfile= models.CharField(null=True, max_length=255)
 class product(models.Model):
     #产品编号
     number = models.CharField( null=True,max_length=255)
@@ -46,9 +54,24 @@ class product(models.Model):
     imgurl0= models.EmailField(null=True,max_length=255)
     imgurl1= models.EmailField(null=True,max_length=255)
     imgurl2= models.EmailField(null=True,max_length=255)
+
+
+
+
+     
     #产品价格
     price= models.CharField(null=True,max_length=255)
     #优惠价格
     price0=models.CharField(null=True,max_length=255)
     #库存数
     count= models.CharField(null=True, max_length=255)
+class file(models.Model):
+    #用户名
+    Uname = models.CharField(null=True, max_length=255)
+    #文件路径
+    path=models.CharField(null=True, max_length=255)
+    #文件名
+    file_name=models.CharField(null=True, max_length=255)
+    #文件内订单是否支付
+    file_flag=models.CharField(null=True, max_length=255)
+    Ftime=models.CharField(null=True, max_length=255)

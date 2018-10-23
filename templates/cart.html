@@ -1,0 +1,185 @@
+<!-- cart.html (mshop project) -->
+{% extends "userhome.html" %}
+
+{% block mainbody %}
+    <div class='container'>
+        {% for message in messages %}
+            <div class='alert alert-{{ message.tags }}'>{{ message }}</div>
+        {% endfor %}
+
+        <div class="register" class="register-but">
+            <div >
+                <div >
+                    <div >
+                        <h4>我的购物车</h4>
+                    </div>
+                    <div class='panel panel-body'>
+                        <from>
+                            <table>
+                                <tr>
+                                    <td width=300 align=center>产品名称</td>
+                                    <td width=300 align=center>产品编号</td>
+                                    <td width=100 align=center>产品图片</td>
+                                    <td width=100 align=center>单价</td>
+                                    <td width=100 align=center>数量</td>
+                                    <td width=100 align=center>小计</td>
+                                    <td width=100 align=center>删除</td>
+                                </tr>
+
+
+                                {% for car in carlist %}
+
+                                    <tr>
+                                        <td width=300 align=center><span>{{ car.product.name }}</span></td>
+                                        <td width=300 align=center class="number"><span>{{ car.product.number }}</span>
+                                        </td>
+                                        <td width=300 align=center>
+                                            <div><img src="{{ car.product.imgurl }}" style="width: 50px"></div>
+                                        </td>
+                                        <td width=300 align=center class="price"><span>{{ car.product.price0 }}</span>
+                                        </td>
+                                        <td width=300 align=center>
+                                            <ul class="count">
+                                                <div id="num-jian" class="minus">-</div>
+                                                <span>{{ car.count }}</span>
+                                                <div id="num-jia" class="plus">+</div>
+                                            </ul>
+
+                                        </td>
+                                        <td width=300 align=center class="sum"><span>{{ car.sum }}</span></td>
+                                        {#                            <td width=300 align=center>{{ list.6 }}</td>#}
+                                        <td width=300 align=center><a href="/cardel?number={{ car.product.number }}"><input type="button" value="删除" ></a>
+                                        </td>
+                                    </tr><br>
+
+                                {% endfor %}
+                            </table>
+                        </from>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                </div>
+                {#                        {% for item in car %}#}
+                {##}
+                {#                            <table border=1>#}
+                {##}
+                {##}
+                {#                                <div class='listgroup'>#}
+                {#                                    <div class='listgroup-item'>#}
+                {#                                        <tr>#}
+                {#                                            <td>{{ item.1 }}</td>#}
+                {#                                            <td align=right>{{ item.2 }}</td>#}
+                {#                                            <td align=center>{{ item.3 }}</td>#}
+                {#                                            <td align=right>{{ item.4 }}</td>#}
+                {#                                            <td align=center>#}
+                {#                                                <a href='{% url "removeitem-url" item.5 %}'><span#}
+                {#                                                        class='glyphicon glyphicon-trash'></span></a>#}
+                {#                                            </td>#}
+                {#                                        </tr>#}
+                {#                                    </div>#}
+                {#                                </div>#}
+                {##}
+                {#                            </table>#}
+                {#                    <button class='btn btn-warning'><a href='/order'>我要订购</a></button>#}
+                {#            #}
+                {#              #}
+                {#                        <em>购物车是空的</em>#}
+                {#                        {% endfor %}#}
+            </div>
+            <div class="pay">
+                 <center><h3>总价:¥<span class="totalPrice">{{ allsum }}</span></h3></center>
+               <center><div><img src="/static/images/2018-10-11_02_32_53_1.png" style="width: 300px"></div></center>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //点击增加按钮触发事件
+            $(".plus").click(function () {
+
+                var num = $(this).parent().children("span");
+                //单品数量增加
+                num.text(parseInt(num.text()) + 1);
+                //单品小计增加
+                var number =parseInt($(this).parent().parent().parent().children(".number").children("span").text());
+                var price = $(this).parent().parent().parent().children(".price").children("span");
+                var sum = $(this).parent().parent().parent().children(".sum").children("span");
+                var a = parseInt(num.text()) * parseInt(price.text())
+                sum.text(a)
+
+                {#//商品总数增加#}
+                {#var totalNum = parseInt($(".totalNum").text());#}
+                {#totalNum++#}
+                {#$(".totalNum").text(totalNum);#}
+                //计算总价
+                var goods_price = parseInt($(this).parent().parent().parent().children(".price").children("span").text());
+                $(".totalPrice").text(parseInt($(".totalPrice").text()) + goods_price);
+                $.ajax({
+                    url: "/caradd",
+                    type: "GET",
+                    data:{"number":number},
+                    success: function (data1) {
+
+                    }
+                })
+
+            });
+
+            //点击减少按钮触发事件
+            $(".minus").click(function () {
+
+                var num = $(this).parent().children("span");
+                if (parseInt(num.text())) {
+                    num.text(parseInt(num.text()) - 1);
+                    var totalNum = parseInt($(".totalNum").text());
+                    totalNum--
+                    var number = parseInt($(this).parent().parent().parent().children(".number").children("span").text());
+                    var price = $(this).parent().parent().parent().children(".price").children("span");
+                    var sum = $(this).parent().parent().parent().children(".sum").children("span");
+                    var a = parseInt(num.text()) * parseInt(price.text())
+                    sum.text(a)
+                    $(".totalNum").text(totalNum);
+                    var goods_price = parseInt($(this).parent().parent().parent().children(".price").children("span").text());
+                    $(".totalPrice").text(parseInt($(".totalPrice").text()) - goods_price);
+                    $.ajax({
+                        url: "/carcut?number="+number,
+                        type: "GET",
+                        success: function (data1) {
+
+                        }
+                    })
+
+                } else {
+                    num.text("0");
+                }
+            });
+        });
+
+
+    </script>
+
+    {#    <script>#}
+    {#        var num_jia = document.getElementById("num-jia");#}
+    {#        var num_jian = document.getElementById("num-jian");#}
+    {#        var input_num = document.getElementById("input-num");#}
+    {#        var sum=document.getElementById("sum");#}
+    {#        num_jia.onclick = function() {#}
+    {#            input_num.value = parseInt(input_num.value) + 1;#}
+    {#        }#}
+    {#        num_jian.onclick = function() {#}
+    {#            if(input_num.value <= 0) {#}
+    {#                input_num.value = 0;#}
+    {#            } else {#}
+    {##}
+    {#                input_num.value = parseInt(input_num.value) - 1;#}
+    {#            }#}
+    {##}
+    {#        }#}
+    {##}
+    {#    </script>#}
+{% endblock %}

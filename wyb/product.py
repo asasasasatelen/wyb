@@ -352,4 +352,5 @@ def delectP(request):
 def getsingle(word):
     id = str(word)
     p = product.objects.get(id=id)
-    return p.name, p.price, p.price0, p.key, p.imgurl, p.imgurl0, p.imgurl1, p.imgurl2
+    return p.name, p.price, p.price0, p.key, p.imgurl, p.imgurl0, p.imgurl1, p.imgurl2,p.number
+

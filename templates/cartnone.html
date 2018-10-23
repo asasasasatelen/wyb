@@ -1,0 +1,52 @@
+<!-- cart.html (mshop project) -->
+{% extends "userhome.html" %}
+
+{% block mainbody %}
+    <div class='container'>
+
+
+        <div class="register" class="register-but">
+            <div class='col-sm-12'>
+                <div class='panel panel-info'>
+                    <div class='panel panel-heading'>
+                        <h4>我的购物车</h4>
+                    </div>
+                    <div class='panel panel-body'>
+<h2>购物车为空</h2>
+
+                    </div>
+                    {#                        {% for item in car %}#}
+                    {##}
+                    {#                            <table border=1>#}
+                    {##}
+                    {##}
+                    {#                                <div class='listgroup'>#}
+                    {#                                    <div class='listgroup-item'>#}
+                    {#                                        <tr>#}
+                    {#                                            <td>{{ item.1 }}</td>#}
+                    {#                                            <td align=right>{{ item.2 }}</td>#}
+                    {#                                            <td align=center>{{ item.3 }}</td>#}
+                    {#                                            <td align=right>{{ item.4 }}</td>#}
+                    {#                                            <td align=center>#}
+                    {#                                                <a href='{% url "removeitem-url" item.5 %}'><span#}
+                    {#                                                        class='glyphicon glyphicon-trash'></span></a>#}
+                    {#                                            </td>#}
+                    {#                                        </tr>#}
+                    {#                                    </div>#}
+                    {#                                </div>#}
+                    {##}
+                    {#                            </table>#}
+                    {#                    <button class='btn btn-warning'><a href='/order'>我要订购</a></button>#}
+                    {#            #}
+                    {#              #}
+                    {#                        <em>购物车是空的</em>#}
+                    {#                        {% endfor %}#}
+                </div>
+                <div class='panel panel-footer'>
+                    总计：{{ cart.summary }}元
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

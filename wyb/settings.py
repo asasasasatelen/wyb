@@ -139,3 +139,14 @@ DATABASES = {
         }
     }
 }
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = False
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'love5iu@qq.com'
+EMAIL_HOST_PASSWORD = 'qw1994428'
+DEFAULT_FROM_EMAIL = 'love5iu@qq.com'

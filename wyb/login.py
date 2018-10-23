@@ -20,8 +20,9 @@ def login(request):
     else:
         if user.password==password:
             context = {}
-            context["username"] = request.session.get('username')
             request.session['username'] = user.name
+            request.session['car'] = None
+            context["username"] = request.session.get('username')
             return render(request, 'index1.html',context)
         else:
             context={}
